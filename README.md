@@ -18,6 +18,8 @@ Settings
 
 **inputId (string)**: Specify the ID of the textarea for identifying this memo.
 
+**memoText (string)**: Text / note to memorize.
+
 **displayTitle (string)**: The title to display above the memo field.
 
 **body (string, optional)**: A message to display before memo is shown.
