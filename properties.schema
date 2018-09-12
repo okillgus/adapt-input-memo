@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "properties":{
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "topic": {
+      "type": "string",
+      "required": false,
+      "inputType": "Text",
+      "title": "topic",
+      "help": "Specify the topic for a range of memos",
+      "default": "",
+      "validators": [{
+        "type": "regexp",
+        "regexp": "^[0-9a-f]{24}$",
+        "message": "This must be set to the topic of a section."
+      }]
+    },
+    "inputId": {
+      "type": "string",
+      "required": false,
+      "inputType": "Text",
+      "title": "InputID",
+      "help": "Specify the ID of the textarea for identifying this memo.",
+      "default": "",
+      "validators": [{
+        "type": "regexp",
+        "regexp": "^[0-9a-f]{24}$",
+        "message": "This must be set to the topic of a section."
+      }]
+    },
+
+}
