@@ -12,19 +12,21 @@ Settings
 ### Attributes
 **_component (string)**: This value must be: `memo`.
 
-> **mode (number)**: Specify the mode in which the component will be used.
+**mode (number)**: Specify the mode in which the component will be used.
 
-> **_topic (string)**: Specify the topic for a range of memos.
+**topic (string)**: Specify the topic for a range of memos.
 
-> **_inputId (string)**: Specify the ID of the textarea for identifying this memo.
+**inputId (string)**: Specify the ID of the textarea for identifying this memo.
 
-> **displayTitle (string)**: The title to display above the memo field.
+**memoText (string)**: Text / note to memorize.
 
-> **body (string, optional)**: A message to display before memo is shown.
+**displayTitle (string)**: The title to display above the memo field.
 
-> **_classes (string)**: CSS class name to be applied to the button's containing div. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+**body (string, optional)**: A message to display before memo is shown.
 
-> **_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
+**_classes (string)**: CSS class name to be applied to the button's containing div. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+
+**_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
 
 
 Limitations
