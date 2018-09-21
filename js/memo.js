@@ -1,4 +1,4 @@
-# control
+// control
 
 define(["coreJS/adapt", "coreViews/componentView"], function(Adapt, ComponentView) {
   var MemoView = ComponentView.extend({
