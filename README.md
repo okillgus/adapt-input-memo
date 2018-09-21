@@ -12,7 +12,7 @@ Settings
 ### Attributes
 **_component (string)**: This value must be: `memo`.
 
-**mode (number)**: Specify the mode in which the component will be used.
+**modus (number)**: Specify the mode in which the component will be used.
 
 **topic (string)**: Specify the topic for a range of memos.
 
