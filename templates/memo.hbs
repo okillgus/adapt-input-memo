@@ -1,41 +1,18 @@
-# template
+// template
 
 <div class="memo-inner component-inner" role="region" aria-label="{{_globals._components._text.ariaRegion}}">
+	{{> component this}}
 	<div class="{{_component}}-header component-header">
-        {{#if memo}}
-	    <div class="{{_component}}-header-inner component-header-inner">
-		    {{#if displayTitle}}
-	        <div class="{{_component}}-title component-title">
-	            <div role="heading" tabindex="0" class="{{_component}}-title-inner component-title-inner"  aria-level="4">
-	                {{{compile displayTitle this}}}
-	            </div>
-	        </div>
-	        {{/if}}
-
-	        {{#if memo}}
-	        <div class="buttons">
-				<div class="buttons icon save">
+        <div class="{{_component}}-body component-body">
+            <div class="{{_component}}-body-inner component-body-inner">
+				<div class="button-group">Für Ihre Notizen:
+					<div class="btn icon save"></div>
+					<div class="btn icon clear"></div>
+					<div class="btn icon reset"></div>
 				</div>
-				<div class="buttons icon clear">
-				</div>
-				<div class="buttons icon reset">
-				</div>
-				
-			</div>
-	        <div class="{{_component}}-body component-body">
-	            <div class="{{_component}}-body-inner component-body-inner">
-	            <textarea name={{topic}} id={{inputId}}></textarea>
-	            </div>
-	        </div>
-	        {{else if body}}
-	        <div class="{{_component}}-body component-body">
-	            <div class="{{_component}}-body-inner component-body-inner">
-	                {{{compile_a11y_text body this}}}
-	            </div>
-	        </div>
-	        {{/if}}
-	    </div>
-        {{/if}}
+            <textarea name={{topic}} id={{inputId}}></textarea>
+            </div>
+        </div>
 	</div>
 </div>
 
