@@ -37,5 +37,17 @@
         "message": "This must be set to the topic of a section."
       }]
     },
-
+    "modus": {
+      "type": "string",
+      "required": false,
+      "inputType": "Text",
+      "title": "Modus",
+      "help": "Specify if the component is used for 'input' or 'output'.",
+      "default": "input",
+      "validators": [{
+        "type": "regexp",
+        "regexp": "^[0-9a-f]{24}$",
+        "message": "This must be set to the topic of a section."
+      }]
+    },
 }
