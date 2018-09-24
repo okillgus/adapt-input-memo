@@ -2,7 +2,6 @@
     "name": "adapt-memo",
     "framework": ">=2",
     "homepage": "https://github.com/okillgus/adapt-memo.git",
-    "issues": "https://github.com/okillgus/adapt-memo/issues",
     "version": "0.1",
     "authors": [
         "Oliver Killgus <oliver.killgus@googlemail.com>"
@@ -12,8 +11,7 @@
     "displayName": "Memo",
     "description": "The Memo Component provides a component for taking notes, saving them and displaying the textinput later.",
     "keywords": [
-        "adapt-plugin",
         "adapt-component"
-    ],
+        ],
     "license": "MIT"
 }
