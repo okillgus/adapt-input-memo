@@ -1,9 +1,8 @@
 {
     "name": "adapt-memo",
-    "repository": "git://github.com/okillgus/adapt-memo.git",
-    "framework": "^2.0.0",
-    "homepage": "git://github.com/okillgus/adapt-memo.git",
-    "issues": "git://github.com/okillgus/adapt-memo/issues",
+    "framework": ">=2",
+    "homepage": "http://github.com/okillgus/adapt-memo.git",
+    "issues": "http://github.com/okillgus/adapt-memo/issues",
     "version": "0.1",
     "authors": [
         "Oliver Killgus <oliver.killgus@googlemail.com>"
@@ -16,6 +15,5 @@
         "adapt-plugin",
         "adapt-component"
     ],
-    "license": "MIT",
-    "targetAttribute": "_memo"
+    "license": "MIT"
 }
