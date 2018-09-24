@@ -1,8 +1,8 @@
 {
     "name": "adapt-memo",
     "framework": ">=2",
-    "homepage": "http://github.com/okillgus/adapt-memo.git",
-    "issues": "http://github.com/okillgus/adapt-memo/issues",
+    "homepage": "https://github.com/okillgus/adapt-memo.git",
+    "issues": "https://github.com/okillgus/adapt-memo/issues",
     "version": "0.1",
     "authors": [
         "Oliver Killgus <oliver.killgus@googlemail.com>"
