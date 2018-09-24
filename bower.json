@@ -12,7 +12,6 @@
     "displayName": "Memo",
     "description": "The Memo Component provides a component for taking notes, saving them and displaying the textinput later.",
     "keywords": [
-        "adapt-plugin",
         "adapt-component"
     ],
     "license": "MIT"
