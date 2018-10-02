@@ -1,6 +1,6 @@
 {
     "name": "adapt-memo",
-    "version": "0.2",
+    "version": "0.6",
     "framework": ">=2",
     "homepage": "https://github.com/okillgus/adapt-memo",
     "authors": [
@@ -9,7 +9,7 @@
     "displayName": "Memo",
     "component": "memo",
     "description": "The Memo Component provides a component for taking notes, saving them and displaying the textinput later.",
-    "main": "/js/adapt-memo.js",
+    "main": "/js/memo.js",
     "keywords": [
         "adapt-plugin",
         "adapt-component"

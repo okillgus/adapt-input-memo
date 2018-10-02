@@ -1,21 +1,8 @@
-// template
-
-<div class="memo-inner component-inner">
-	{{> component this}}
-<!--
-		<div class="{{_component}}-header component-header">
-        <div class="{{_component}}-body component-body">
-            <div class="{{_component}}-body-inner component-body-inner">
-				<div class="button-group">Für Ihre Notizen:
-					<div class="btn icon save"></div>
-					<div class="btn icon clear"></div>
-					<div class="btn icon reset"></div>
-				</div>
-            	<textarea name={{this.topic}} id={{this.inputId}}>
-					{{this.memoText}}
-				</textarea>
-            </div>
-        </div>
-	</div>
--->
+{{!-- /templates/memo.hbs --}}
+<div class="component-inner memo-inner">
+    {{> component this}}
+    <div class="component-widget">
+        Hello World!
+		<textarea>Jup!</textarea>
+    </div>
 </div>
