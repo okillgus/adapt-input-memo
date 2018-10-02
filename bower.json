@@ -11,7 +11,6 @@
     "description": "The Memo Component provides a component for taking notes, saving them and displaying the textinput later.",
     "main": "/js/memo.js",
     "keywords": [
-        "adapt-plugin",
         "adapt-component"
         ],
     "license": "MIT"
