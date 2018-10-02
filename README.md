@@ -16,7 +16,7 @@ Settings
 
 **_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
 
-**modus (number)**: Specify the mode in which the component will be used.
+**modus (string)**: Specify the mode (input, output) in which the component will be used.
 
 **topic (string)**: Specify the topic for a range of memos.
 

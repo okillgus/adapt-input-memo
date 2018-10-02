@@ -1,5 +1,5 @@
 {
-  "type": "object",
+  "type":"object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "$ref": "http://localhost/plugins/content/component/model.schema",
@@ -12,7 +12,7 @@
       "validators": [],
       "translatable": true
     }
-  },  
+  },
   "properties":{
     "_supportedLayout": {
       "type": "string",
@@ -54,8 +54,9 @@
       "inputType": "Text",
       "title": "Modus",
       "help": "Specify if the component is used for 'input' or 'output'.",
+      "enum": ["input", "output"],
       "default": "input",
       "validators": []
-    },
+    }
   }
 }
