@@ -1,8 +1,9 @@
 // template
 
-<div class="memo-inner component-inner" role="region" aria-label="{{_globals._components._text.ariaRegion}}">
+<div class="memo-inner component-inner">
 	{{> component this}}
-	<div class="{{_component}}-header component-header">
+<!--
+		<div class="{{_component}}-header component-header">
         <div class="{{_component}}-body component-body">
             <div class="{{_component}}-body-inner component-body-inner">
 				<div class="button-group">Für Ihre Notizen:
@@ -10,10 +11,11 @@
 					<div class="btn icon clear"></div>
 					<div class="btn icon reset"></div>
 				</div>
-            	<textarea name={{topic}} id={{inputId}}>
-					{{memoText}}
+            	<textarea name={{this.topic}} id={{this.inputId}}>
+					{{this.memoText}}
 				</textarea>
             </div>
         </div>
 	</div>
+-->
 </div>

@@ -37,11 +37,7 @@
       "title": "topic",
       "help": "Specify the topic for a range of memos",
       "default": "",
-      "validators": [{
-        "type": "regexp",
-        "regexp": "^[0-9a-f]{24}$",
-        "message": "This must be set to the topic of a section."
-      }]
+      "validators": []
     },
     "inputId": {
       "type": "string",
@@ -50,11 +46,7 @@
       "title": "InputID",
       "help": "Specify the ID of the textarea for identifying this memo.",
       "default": "",
-      "validators": [{
-        "type": "regexp",
-        "regexp": "^[0-9a-f]{24}$",
-        "message": "This must be set to the topic of a section."
-      }]
+      "validators": []
     },
     "modus": {
       "type": "string",
@@ -63,11 +55,7 @@
       "title": "Modus",
       "help": "Specify if the component is used for 'input' or 'output'.",
       "default": "input",
-      "validators": [{
-        "type": "regexp",
-        "regexp": "^[0-9a-f]{24}$",
-        "message": "This must be set to the topic of a section."
-      }]
+      "validators": []
     },
   }
 }

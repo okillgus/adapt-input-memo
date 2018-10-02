@@ -12,6 +12,10 @@ Settings
 ### Attributes
 **_component (string)**: This value must be: `memo`.
 
+**_classes (string)**: CSS class name to be applied to the button's containing div. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+
+**_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
+
 **modus (number)**: Specify the mode in which the component will be used.
 
 **topic (string)**: Specify the topic for a range of memos.
@@ -24,9 +28,10 @@ Settings
 
 **body (string, optional)**: A message to display before memo is shown.
 
-**_classes (string)**: CSS class name to be applied to the button's containing div. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+**instruction** (string): This optional text appears above the component. It is frequently used to
+guide the learner’s interaction with the component.
 
-**_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
+
 
 
 Limitations

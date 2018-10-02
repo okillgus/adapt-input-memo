@@ -12,11 +12,15 @@ define(["coreJS/adapt", "coreViews/componentView"], function(Adapt, ComponentVie
         },
         postRender: function(){
           // css? 
+          this.setReadyStatus();
         },
         preRemove:  function(){
           // Daten sichern ?
         }
-  });
+  },
+    {
+        template: 'memo'
+    });
 
     Adapt.register("memo", MemoView);
     return MemoView;
