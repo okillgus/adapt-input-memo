@@ -2,7 +2,15 @@
 <div class="component-inner memo-inner">
     {{> component this}}
     <div class="component-widget">
-        Hello World!
-		<textarea>Jup!</textarea>
+        <div class="component-title memo-title">{{topic_complete}}</div>
+        {{#if modus}}
+        <div class="memo-display" id="memo-out-{{topic}}">
+        </div>
+        {{else}}
+        <button class="button saveMemo" >Speichern</button> 
+        <button class="button resetMemo" >Zurücksetzen</button> 
+        <button class="button clearMemo" >Alles löschen</button></p>
+		<textarea class="textarea memo-text" id="memo-in-{{inputId}}">Für Ihre Notizen...</textarea>
+        {{/if}}
     </div>
 </div>
