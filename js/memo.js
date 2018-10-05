@@ -125,10 +125,21 @@ define(function(require) {
       },
 
       updateData: function(tp, inp, data){
-        var _dataObj = this.model.get(this.model.get('storageName'));
+        console.log('updating: ', data);
+        var _message = this.model.get('message');
+
+        var _dataObj = this.readDB();
+        _dataObj = this.checkData(tp, inp, _message, _dataObj);
+
+        console.log('current DB: ', _dataObj);
+
         _dataObj[tp][inp] = data;
         this.model.set(this.model.get('storageName'), _dataObj);
-        this.writeDB(_dataObj);  
+        console.log('current Data: ', this.model.get(this.model.get('storageName')) );
+        
+        this.writeDB(_dataObj);
+        console.log("writing DB", localStorage);
+
       },
 
       resetData: function(tp, inp){
