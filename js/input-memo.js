@@ -3,7 +3,7 @@ define(function(require) {
   var ComponentView = require('coreViews/componentView');
   var Adapt = require('coreJS/adapt');
 
-  var Memo = ComponentView.extend({
+  var inputMemo = ComponentView.extend({
 
       events: {
         "click .saveMemo":  "saveMemo",
@@ -194,10 +194,10 @@ define(function(require) {
                   
     },
   {
-      template: 'memo'
+      template: 'input-memo'
   });
  
-  Adapt.register('memo', Memo);
+  Adapt.register('input-memo', inputMemo);
 
-  return Memo;
+  return inputMemo;
 });
