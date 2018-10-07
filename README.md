@@ -1,11 +1,11 @@
-# adapt-memo
+# adapt-input-memo
 
 Memory component for adapt learning framework.
 
-The **Memo Component** provides a component for taking notes, saving them and displaying the textinput later.
+The **Memo Component** provides a component for saving textinput and displaying it later.
 
-Mode 1 will display a textarea where you can write down some notes that you want to memorize. 
-Mode 2 will display the memorized text.
+There are two modes to go: The readonly-mode will display the memorized text. The other mode will display a textarea where you can write down some notes that you want to memorize. 
+
 
 Settings
 --------
@@ -16,13 +16,13 @@ Settings
 
 **_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
 
-**modus (string)**: Specify the mode (input, output) in which the component will be used.
+**modus (boolean)**: Specify the mode (readonly or editable) in which the component will be used.
 
 **topic (string)**: Specify the topic for a range of memos.
 
-**inputId (string)**: Specify the ID of the textarea for identifying this memo.
+**topic_complete (string)**: Specify the topic in longer form in order to display it as heading.  
 
-**memoText (string)**: Text / note to memorize.
+**inputId (string)**: Specify the ID of the textarea for identifying this memo.
 
 **displayTitle (string)**: The title to display above the memo field.
 
