@@ -2,7 +2,7 @@
 
 Memory component for adapt learning framework.
 
-The **Memo Component** provides a component for saving textinput and displaying it later.
+The **Input-Memo Component** provides a component for saving textinput and displaying it later.
 
 There are two modes to go: The readonly-mode will display the memorized text. The other mode will display a textarea where you can write down some notes that you want to memorize. 
 
@@ -45,4 +45,4 @@ Limitations
 No known limitations.
 
 -----------
-The **Memo Component** is a plugin for the Adapt Framework. [Adapt](https://www.adaptlearning.org) is a free and easy to use e-learning authoring tool that creates fully responsive, multi-device, HTML5 e-learning content using the award-winning Adapt developer framework.
+The **Input-Memo Component** is a plugin for the Adapt Framework. [Adapt](https://www.adaptlearning.org) is a free and easy to use e-learning authoring tool that creates fully responsive, multi-device, HTML5 e-learning content using the award-winning Adapt developer framework.
