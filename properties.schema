@@ -45,7 +45,7 @@
       "inputType": "Text",
       "title": "Message",
       "help": "Short message to encourage users where to write down memos",
-      "default": "Für Ihre Notizen",
+      "default": "Notes ....",
       "validators": []
     },
     "topic": {
@@ -91,6 +91,33 @@
       "title": "Display",
       "help": "Specify how many saved Memos will be displayed: All (default) or only the one identified in the InputId-Field.",
       "default": "all",
+      "validators": []
+    },
+    "saveInput": {
+      "type": "string",
+      "required": false,
+      "inputType": "Text",
+      "title": "Save",
+      "help": "Specify the caption of a button.",
+      "default": "Save",
+      "validators": []
+    },
+    "resetInput": {
+      "type": "string",
+      "required": false,
+      "inputType": "Text",
+      "title": "Reset",
+      "help": "Specify the caption of a button.",
+      "default": "Reset",
+      "validators": []
+    },
+    "clearAll": {
+      "type": "string",
+      "required": false,
+      "inputType": "Text",
+      "title": "Clear all",
+      "help": "Specify the caption of a button.",
+      "default": "Clear all",
       "validators": []
     }
   }
