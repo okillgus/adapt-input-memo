@@ -17,9 +17,9 @@ define(function(require) {
       },
 
       postRender: function() {
-        console.log('modus: ');
-        console.log(this.model.get('modus'));
-        console.log( typeof this.model.get('modus') );
+        //console.log('modus: ');
+        //console.log(this.model.get('modus'));
+        //console.log( typeof this.model.get('modus') );
         if (! this.model.get('modus')){
           this.importData();
         }
@@ -36,9 +36,9 @@ define(function(require) {
         var _message = this.model.get("message");
         var _dbName = this.model.get("storageName");
         var _data = this.readDB();
-        console.log("importing ..., raw: "+_data);
+        //console.log("importing ..., raw: "+_data);
         _data = this.checkData(_topic, _inputId, _message, _data);
-        console.log("structured: "+_data);
+        //console.log("structured: "+_data);
         this.model.set(_dbName,_data);
       },
 
@@ -65,9 +65,9 @@ define(function(require) {
       importData: function(){
           // Daten in die View laden
         var dbName = this.model.get('storageName');
-        console.log(dbName);
+        // console.log(dbName);
         var memoDB = this.model.get(dbName);
-        console.log("postrender", memoDB);
+        // console.log("postrender", memoDB);
         var _topic = this.model.get("topic");
         var _inputId = this.model.get("inputId");
         var memoText = memoDB[_topic][_inputId];
@@ -78,10 +78,10 @@ define(function(require) {
       displayData: function(){
         // Daten in die View laden
         var dbName = this.model.get('storageName');
-        console.log(dbName);
+        // console.log(dbName);
         var memoDB = this.model.get(dbName);
-        console.log("postrender", memoDB);
-        console.log("displaying... ");
+        // console.log("postrender", memoDB);
+        // console.log("displaying... ");
         var _topic = this.model.get("topic");
         var _inputId = this.model.get("inputId");
 
@@ -98,47 +98,38 @@ define(function(require) {
           }
         // view !
         
-    },
-
-
-/*      addData: function(tp, inp, data){
-        var _dataObj = this.model.get(this.model.get('storageName'));
-        var obj = {};
-        obj[inp] = data;
-        _dataObj[tp] = obj;
-        this.model.set(this.model.get('storageName'), _dataObj);          
-      }, */
+      },
 
       readDB: function(){
           // Daten aus localStorage holen
         var _data = localStorage.getItem(this.model.get('storageName'));
-        console.log("reading...", _data);
+        // console.log("reading...", _data);
         if (!_data) { return false; }
         return JSON.parse(_data); 
       },
 
       writeDB: function(data){
           // Daten in localStorage schreiben
-        console.log("writing...", data);
+        // console.log("writing...", data);
         var _data = JSON.stringify(data);
         localStorage.setItem(this.model.get('storageName'), _data);
       },
 
       updateData: function(tp, inp, data){
-        console.log('updating: ', data);
+        // console.log('updating: ', data);
         var _message = this.model.get('message');
 
         var _dataObj = this.readDB();
         _dataObj = this.checkData(tp, inp, _message, _dataObj);
 
-        console.log('current DB: ', _dataObj);
+        // console.log('current DB: ', _dataObj);
 
         _dataObj[tp][inp] = data;
         this.model.set(this.model.get('storageName'), _dataObj);
-        console.log('current Data: ', this.model.get(this.model.get('storageName')) );
+        // console.log('current Data: ', this.model.get(this.model.get('storageName')) );
         
         this.writeDB(_dataObj);
-        console.log("writing DB", localStorage);
+        // console.log("writing DB", localStorage);
 
       },
 
@@ -161,7 +152,7 @@ define(function(require) {
           var _inputId = this.model.get("inputId");
           var memoText = this.$('#memo-in-'+_inputId).val();
           this.updateData(_topic, _inputId, memoText);
-          console.log("saved: ", this.model.get(this.model.get('storageName')));
+          // console.log("saved: ", this.model.get(this.model.get('storageName')));
       },
 
       resetMemo: function(){
@@ -170,7 +161,7 @@ define(function(require) {
         var _inputId = this.model.get("inputId");
         this.updateInput(_inputId, this.model.get("message"));
         this.resetData(_topic, _inputId);
-        console.log("reset: ", _topic, _inputId, this.model.get(this.model.get('storageName')));
+        // console.log("reset: ", _topic, _inputId, this.model.get(this.model.get('storageName')));
       },
 
       clearMemo: function(){
@@ -178,7 +169,7 @@ define(function(require) {
         this.updateInput(this.model.get("inputId"), this.model.get("message")); // -> Das muss für alle inputs eines topic geschehen
         var _topic = this.model.get("topic");
         this.clearData(_topic);
-        console.log("reset: ", _topic, this.model.get(this.model.get('storageName')));
+        // console.log("reset: ", _topic, this.model.get(this.model.get('storageName')));
         },
 
       updateInput: function(elemId, text){

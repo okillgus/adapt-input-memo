@@ -7,10 +7,10 @@
         <div class="memo-display" id="memo-out-{{topic}}">
         </div>
         {{else}}
-        <button class="button saveMemo" >Speichern</button> 
-        <button class="button resetMemo" >Zurücksetzen</button> 
-        <button class="button clearMemo" >Alles löschen</button></p>
-		<textarea class="textarea memo-text" id="memo-in-{{inputId}}">Für Ihre Notizen...</textarea>
+        <button class="button saveMemo" >{{saveInput}}</button> 
+        <button class="button resetMemo" >{{resetInput}}</button> 
+        <button class="button clearMemo" >{{clear_all}}</button></p>
+		<textarea class="textarea memo-text" id="memo-in-{{inputId}}">{{message}}</textarea>
         {{/if}}
     </div>
 </div>
