@@ -1,7 +1,7 @@
 {
     "name": "adapt-input-memo",
-    "version": "1.5.2",
-    "framework": ">=2",
+    "version": "1.6.0",
+    "framework": "^2.0.0",
     "homepage": "https://github.com/okillgus/adapt-input-memo",
     "repository": "git://github.com/okillgus/adapt-input-memo.git",
     "authors": [
