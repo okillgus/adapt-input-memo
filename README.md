@@ -1,10 +1,8 @@
 # adapt-input-memo
 
-Memory component for adapt learning framework.
+Memory component for adapt learning framework. The **Input-Memo Component** provides a component for saving textinput and displaying it later. There are two modes to go: The readonly-mode will display the memorized text. The other mode will display a textarea where you can write down some notes that you want to memorize. 
+You will have to implement the component as many times as you want the Learner to reconsider the given topic. Be sure to fill in the same topic, but different input-ids.
 
-The **Input-Memo Component** provides a component for saving textinput and displaying it later.
-
-There are two modes to go: The readonly-mode will display the memorized text. The other mode will display a textarea where you can write down some notes that you want to memorize. 
 
 
 Settings
