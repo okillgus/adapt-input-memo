@@ -35,7 +35,9 @@ Settings
 **instruction** (string): This optional text appears above the component. It is frequently used to
 guide the learner’s interaction with the component.
 
-
+TODO
+-----------
+Using model-view-structure more efficiently. Next step will be a rewrite of the model and a transfer of function from view to model - for example saveDB.
 
 
 Limitations
