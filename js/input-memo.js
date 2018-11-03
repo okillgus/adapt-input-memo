@@ -1,45 +1,88 @@
 define(function(require) {
-    
+  //TODO: save, version, upload, test  
   var ComponentView = require('coreViews/componentView');
   var Adapt = require('coreJS/adapt');
 
   var inputMemo = ComponentView.extend({
 
       events: {
-        "click .saveMemo":  "saveMemo",
+        "change .memo-text": "triggerSignal",
+        "click .saveMemo": "saveMemo",
         "click .resetMemo": "resetMemo",
         "click .clearMemo": "clearMemo"
       },
 
       preRender: function() {
           // this.checkIfResetOnRevisit();
+          var id = "input-memo_"+String(Math.random()).substr(2);
+          this.model.set('id', id); // instance id
+
           this.initData();
+          this.listenTo(Adapt, {
+            "input-memo:saved": this.notify
+            });
       },
 
       postRender: function() {
-        //console.log('modus: ');
-        //console.log(this.model.get('modus'));
-        //console.log( typeof this.model.get('modus') );
-        if (! this.model.get('modus')){
-          this.importData();
-        }
-        else{
+        if (this.model.get('modus')){
           this.displayData();
         }
-          this.setReadyStatus();
+        this.setReadyStatus();
       },
 
+      triggerSignal: function(){
+        // console.log('Changed! ', this.model.get('id'));
+        Adapt.trigger("input-memo:saved", {
+          "topic": this.model.get('topic'), 
+          "inputId": this.model.get('inputId'),
+          "id": this.model.get('id')
+          });
+      },
+
+      notify: function(param){
+        // @param := model.id
+        var topic = this.model.get('topic');
+        var inputId = this.model.get('inputId');
+        var id = this.model.get('id');
+  
+        if (topic == param.topic && inputId == param.inputId && id != param.id){ // Changes here or elsewhere?
+          // console.log('Update? ', param.step);
+          // console.log("Update!", this.model.get('id'));
+          this.update();
+        }
+      },
+
+      update: function(){
+        this.initData();
+        if (this.model.get('modus')){
+          this.displayData();
+        }
+        else{
+          this.importData();
+        }
+      },
+  
       initData: function(){
         // Datensatz herrichten 
-        var _topic = this.model.get("topic");
-        var _inputId = this.model.get("inputId");
-        var _message = this.model.get("message");
-        var _dbName = this.model.get("storageName");
-        var _data = this.readDB();
+        var topic = this.model.get("topic");
+        var inputId = this.model.get("inputId");
+        var message = this.model.get("message");
+        var data = this.readDB();
         //console.log("importing ..., raw: "+_data);
-        _data = this.checkData(_topic, _inputId, _message, _data);
+        data = this.checkData(topic, inputId, message, data);
         //console.log("structured: "+_data);
-        this.model.set(_dbName,_data);
+        var dbName = this.model.get("storageName");        
+        this.model.set(dbName, data);
+        if (this.model.get('display') == 'one'){         // display one ?
+          var tempData = {};
+          tempData[inputId] = data[topic][inputId];
+          console.log('initOne: ', tempData);
+          this.model.set('db', tempData);
+        }
+        else{
+          this.model.set('db', data[_topic]);
+        }
+        this.model.set('message', data[topic][inputId]);
       },
 
       checkData: function(tp, inp, text, data){
@@ -68,11 +111,11 @@ define(function(require) {
         // console.log(dbName);
         var memoDB = this.model.get(dbName);
         // console.log("postrender", memoDB);
-        var _topic = this.model.get("topic");
-        var _inputId = this.model.get("inputId");
-        var memoText = memoDB[_topic][_inputId];
+        var topic = this.model.get("topic");
+        var inputId = this.model.get("inputId");
+        var memoText = memoDB[topic][inputId];
         // view !
-        this.updateInput(_inputId, memoText);
+        this.updateInput(memoText);
       },
 
       displayData: function(){
@@ -85,14 +128,15 @@ define(function(require) {
         var _topic = this.model.get("topic");
         var _inputId = this.model.get("inputId");
 
-        if (this.model.get('display') == 'one'){         // display one ?
-          this.$('#memo-out-'+_topic).append('<li>'+memoDB[_topic][_inputId]+'</li>');
+        this.$('#memo-out-'+_topic).html("");    // reset view 
+        if (this.model.get('display') == 'one'){ // display one ?
+          this.$('#memo-out-'+_topic).append('<div class="header">'+_inputId+'</div><div class="content">'+memoDB[_topic][_inputId]+'</div>');
           }
         else{ // display all ?
-          for (item in memoDB[_topic]){
+          for (var item in memoDB[_topic]){
               var mess = memoDB[_topic][item];
               if (mess != this.model.get('message')){
-                this.$('#memo-out-'+_topic).append('<li>'+memoDB[_topic][item]+'</li>');
+                this.$('#memo-out-'+_topic).append('<div class="header">'+item+'</div><div class="content">'+memoDB[_topic][item]+'</div>');
                 }
             }
           }
@@ -152,6 +196,7 @@ define(function(require) {
           var _inputId = this.model.get("inputId");
           var memoText = this.$('#memo-in-'+_inputId).val();
           this.updateData(_topic, _inputId, memoText);
+          //this.triggerSignal();
           // console.log("saved: ", this.model.get(this.model.get('storageName')));
       },
 
@@ -172,9 +217,10 @@ define(function(require) {
         // console.log("reset: ", _topic, this.model.get(this.model.get('storageName')));
         },
 
-      updateInput: function(elemId, text){
+      updateInput: function(text){
           // console.log("clear");
-          this.$('#memo-in-'+elemId).val(text);
+          var elemId = "#"+this.model.get('id');
+          this.$(elemId).val(text);
           },
 
       updateDisplay: function(text){

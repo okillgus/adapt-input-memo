@@ -1,12 +1,9 @@
 {
     "name": "adapt-input-memo",
-    "version": "1.6.0",
+    "version": "1.6.7",
     "framework": "^2.0.0",
     "homepage": "https://github.com/okillgus/adapt-input-memo",
     "repository": "git://github.com/okillgus/adapt-input-memo.git",
-    "authors": [
-        "Oliver Killgus <oliver.killgus@googlemail.com>"
-    ],
     "displayName": "Input-Memo",
     "component": "input-memo",
     "description": "The Input-Memo Component provides a component for taking notes, saving them and displaying the textinput later.",
@@ -14,6 +11,9 @@
     "keywords": [
         "adapt-plugin",
         "adapt-component"
-        ],
+    ],
+    "authors": [
+        "Oliver Killgus <oliver.killgus@googlemail.com>"
+    ],
     "license": "MIT"
 }

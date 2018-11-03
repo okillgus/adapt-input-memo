@@ -4,13 +4,19 @@
     <div class="component-widget">
         <div class="memo-title">{{topic_complete}}</div>
         {{#if modus}}
-        <div class="memo-display" id="memo-out-{{topic}}">
-        </div>
+        <!-- each ??? gleicher SpeicherName für alle DBs -->
+            <div class="memo-display" id="memo-out-{{topic}}">
+                {{#each db}}
+                <!-- Überschrift angezeigt? -->
+                <div class="header">{{db}}</div>
+                <div class="content">{{inputId}}</div>
+                {{/each}}
+            </div>
         {{else}}
-        <button class="button saveMemo" >{{saveInput}}</button> 
-        <button class="button resetMemo" >{{resetInput}}</button> 
-        <button class="button clearMemo" >{{clearAll}}</button></p>
-		<textarea class="textarea memo-text" id="memo-in-{{inputId}}">{{message}}</textarea>
+            <button class="button saveMemo" >{{saveInput}}</button> 
+            <button class="button resetMemo" >{{resetInput}}</button> 
+            <button class="button clearMemo" >{{clearAll}}</button></p>
+            <textarea class="textarea memo-text" id="{{id}}">{{message}}</textarea>
         {{/if}}
     </div>
 </div>
