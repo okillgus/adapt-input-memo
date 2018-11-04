@@ -84,15 +84,6 @@
       "default": false,
       "validators": []
     },
-    "saveInput": {
-      "type": "string",
-      "required": false,
-      "inputType": "Text",
-      "title": "Save",
-      "help": "Specify the caption of a button.",
-      "default": "Save",
-      "validators": []
-    },
     "resetInput": {
       "type": "string",
       "required": false,

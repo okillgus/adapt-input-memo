@@ -6,9 +6,9 @@
         {{#if modus}}
         <!-- each ??? gleicher SpeicherName für alle DBs -->
             <div class="memo-display" id="memo-out-{{topic}}">
-                {{#each db}}
+                {{#each db/topic}}
                 <!-- Überschrift angezeigt? -->
-                <div class="header">{{db}}</div>
+                <div class="header">{{db/topic}}</div>
                 <div class="content">{{inputId}}</div>
                 {{/each}}
             </div>
