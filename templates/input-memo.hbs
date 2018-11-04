@@ -13,10 +13,11 @@
                 {{/each}}
             </div>
         {{else}}
-            <button class="button saveMemo" >{{saveInput}}</button> 
-            <button class="button resetMemo" >{{resetInput}}</button> 
-            <button class="button clearMemo" >{{clearAll}}</button></p>
             <textarea class="textarea memo-text" id="{{id}}">{{message}}</textarea>
+            <div class="buttongroup">
+                <button class="button resetMemo" >{{resetInput}}</button>
+                <button class="button clearMemo" >{{clearAll}}</button>
+            </div>
         {{/if}}
     </div>
 </div>

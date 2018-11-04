@@ -84,15 +84,6 @@
       "default": false,
       "validators": []
     },
-    "display": {
-      "type": "select",
-      "required": false,
-      "inputType": {"type": "Select", "options": ["one", "all"]},
-      "title": "Display",
-      "help": "Specify how many saved Memos will be displayed: All (default) or only the one identified in the InputId-Field.",
-      "default": "all",
-      "validators": []
-    },
     "saveInput": {
       "type": "string",
       "required": false,
