@@ -1,5 +1,5 @@
 define(function(require) {
-  //TODO: save, version, upload, test  
+  //TODO: undo console.log, version, upload, test!  
   var ComponentView = require('coreViews/componentView');
   var Adapt = require('coreJS/adapt');
 
@@ -23,9 +23,9 @@ define(function(require) {
       },
 
       postRender: function() {
-        //if (this.model.get('modus')){
-        //  this.displayData();
-        //}
+        if (this.model.get('modus')){
+          this.displayData();
+        }
         this.setReadyStatus();
       },
 
@@ -43,8 +43,7 @@ define(function(require) {
         var topic = this.model.get('topic');
         var inputId = this.model.get('inputId');
         var id = this.model.get('id');
-  
-        if (topic == param.topic && inputId == param.inputId && id != param.id){ // Changes here or elsewhere?
+        if (topic == param.topic && ( inputId == param.inputId || this.model.get('modus') ) && id != param.id){ // Changes here or elsewhere?
           // console.log('Update? ', param.step);
           // console.log("Update!", this.model.get('id'));
           this.update();
@@ -66,6 +65,7 @@ define(function(require) {
         var topic = this.model.get("topic");
         var inputId = this.model.get("inputId");
         var message = this.model.get("message");
+        this.model.set('resetMessage', message);
         var data = this.readDB();
         //console.log("importing ..., raw: "+_data);
         data = this.checkData(topic, inputId, message, data);
@@ -111,21 +111,18 @@ define(function(require) {
       },
 
       displayData: function(){
-        // Daten in die View laden
-        // var dbName = this.model.get('storageName');
-        // console.log(dbName);
         var memoDB = this.model.get('db');
-        // console.log("postrender", memoDB);
-        // console.log("displaying... ");
+        console.log(memoDB);
         var topic = this.model.get("topic");
-        var _inputId = this.model.get("inputId");
+        var viewport = this.$('#memo-out-'+topic);
+        console.log(viewport);
+        viewport.html("");    // reset view
 
-        this.$('#memo-out-'+topic).html("");    // reset view 
         for (var item in memoDB[topic]){
-          var mess = memoDB[topic][item];
-          if (mess != this.model.get('message')){
-            this.$('#memo-out-'+topic).append('<div class="header">'+item+'</div><div class="content">'+memoDB[topic][item]+'</div>');
-          }
+          console.log("for ... display: ", item, memoDB[topic], memoDB[topic][item]);
+          // var mess = memoDB[topic][item];
+          console.log("memoDB[topic][item]:"+memoDB[topic][item]+" != this.model.get('message'):"+this.model.get('message')+" =>",memoDB[topic][item] != this.model.get('message'));
+          this.$('#memo-out-'+topic).append('<li><div class="header">'+item+'</div><div class="content">'+memoDB[topic][item]+'</div></li>');
         }
       },
 
@@ -162,20 +159,6 @@ define(function(require) {
 
       },
 
-      resetData: function(tp, inp){
-        var storedData = this.model.get('db');
-        storedData[tp][inp] = this.model.get("message");
-        this.model.set('db', storedData);
-        this.writeDB(storedData);            
-      },
-
-      clearData: function(tp){
-        var storedData = this.model.get('db');
-        delete storedData[tp];
-        this.model.set('db', storedData);
-        this.writeDB(storedData);            
-      },
-
       saveMemo: function(){
           var topic = this.model.get("topic");
           var inputId = this.model.get("inputId");
@@ -190,17 +173,26 @@ define(function(require) {
         // console.log("reset");
         var topic = this.model.get("topic");
         var inputId = this.model.get("inputId");
-        this.updateInput(inputId, this.model.get("message"));
-        this.resetData(topic, inputId);
+        var message = this.model.get("resetMessage");
+        this.updateInput(message);
+        // this.resetData(topic, inputId);
+        var storedData = this.model.get('db');
+        storedData[topic][inputId] = message;
+        this.model.set('db', storedData);
+        this.writeDB(storedData); 
         this.triggerSignal();
         // console.log("reset: ", topic, _inputId, this.model.get(this.model.get('storageName')));
       },
 
       clearMemo: function(){
         // console.log("clear");
-        this.updateInput(this.model.get("inputId"), this.model.get("message")); // -> Das muss für alle inputs eines topic geschehen
+        this.updateInput(this.model.get("resetMessage")); // -> Das muss für alle inputs eines topic geschehen
         var topic = this.model.get("topic");
-        this.clearData(topic);
+        //this.clearData(topic);
+        var storedData = this.model.get('db');
+        delete storedData[topic];
+        this.model.set('db', storedData);
+        this.writeDB(storedData);
         this.triggerSignal();
         // console.log("reset: ", topic, this.model.get(this.model.get('storageName')));
         },
