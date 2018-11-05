@@ -18,9 +18,7 @@ Settings
 
 **message (string)**: Short message to encourage users where to write down memos.
 
-**display (enum)**: Specify how many saved Memos will be displayed: All (default) or only the one identified in the InputId-Field.
-
-**modus (boolean)**: Specify the mode (readonly or editable) in which the component will be used.
+**modus (boolean)**: Specify if used in readonly mode (default = false).
 
 **topic (string)**: Specify the topic for a range of memos.
 
