@@ -15,6 +15,8 @@ define(function(require) {
           // this.checkIfResetOnRevisit();
           var id = "input-memo_"+String(Math.random()).substr(2);
           this.model.set('id', id); // instance id
+          var message = this.model.get("message");
+          this.model.set('resetMessage', message);
 
           this.initData();
           this.listenTo(Adapt, {
@@ -65,7 +67,7 @@ define(function(require) {
         var topic = this.model.get("topic");
         var inputId = this.model.get("inputId");
         var message = this.model.get("message");
-        this.model.set('resetMessage', message);
+        // this.model.set('resetMessage', message);
         var data = this.readDB();
         //console.log("importing ..., raw: "+_data);
         data = this.checkData(topic, inputId, message, data);
