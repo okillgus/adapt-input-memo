@@ -14,7 +14,7 @@ Settings
 
 **_layout (string)**: This defines the horizontal position of the component in the block. Acceptable values are full, left or right.
 
-**storageName (string)**: Specify the name for a shelf where to put the memos.
+**storageName (string)**: Specify the name of the item in localStorage where to put the memos.
 
 **message (string)**: Short message to encourage users where to write down memos.
 
