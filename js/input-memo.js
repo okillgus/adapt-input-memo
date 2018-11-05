@@ -1,5 +1,5 @@
 define(function(require) {
-  //TODO: undo console.log, version, upload, test!  
+ 
   var ComponentView = require('coreViews/componentView');
   var Adapt = require('coreJS/adapt');
 
