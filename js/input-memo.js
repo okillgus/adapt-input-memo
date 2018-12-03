@@ -13,6 +13,13 @@ define(function(require) {
 
       preRender: function() {
           // this.checkIfResetOnRevisit();
+          // insert 3-12-18
+          var topic = this.model.get('topic').replace(/ /g, "_");
+          this.model.set('topic', topic);
+          var inputId = this.model.get('inputId').replace(/ /g, "_");
+          this.model.set('inputId', inputId);
+          // ende 3-12-18
+
           var id = "input-memo_"+String(Math.random()).substr(2);
           this.model.set('id', id); // instance id
           var message = this.model.get("message");
@@ -103,7 +110,7 @@ define(function(require) {
         viewport.html("");    // reset view
 
         for (var item in memoDB[topic]){
-          this.$('#memo-out-'+topic).append('<li><div class="header">'+item+'</div><div class="content">'+memoDB[topic][item]+'</div></li>');
+          this.$('#memo-out-'+topic).append('<li><div class="header">'+item.replace(/_/g, " ")+'</div><div class="content">'+memoDB[topic][item]+'</div></li>');
         }
       },
 
